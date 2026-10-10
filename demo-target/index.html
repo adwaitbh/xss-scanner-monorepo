@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XSS Demo Target</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 640px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: #e6e6e6;
+      background: #0a0a0a;
+      line-height: 1.6;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    p { color: #a3a3a3; margin: 8px 0; }
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    a:hover { border-color: #60a5fa; }
+    .card {
+      border: 1px solid #262626;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .vuln { border-color: #7f1d1d; }
+    .safe { border-color: #14532d; }
+    h3 { font-size: 16px; margin: 0 0 8px 0; }
+    code {
+      background: #171717;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      color: #e6e6e6;
+    }
+  </style>
+</head>
+<body>
+  <h1>XSS Demo Target</h1>
+  <p>Two endpoints to test the scanner against. One is vulnerable, one is safe.</p>
+
+  <div class="card vuln">
+    <h3>⚠️ Vulnerable endpoint</h3>
+    <p>Reflects the <code>query</code> parameter directly into HTML — no encoding.</p>
+    <p><a href="/api/echo?query=hello">/api/echo?query=hello</a></p>
+    <p style="font-size: 13px; color: #737373;">
+      Test with: <code>/api/echo?query=hello</code>
+    </p>
+  </div>
+
+  <div class="card safe">
+    <h3>✅ Safe endpoint</h3>
+    <p>Reflects the <code>query</code> parameter as HTML-encoded text.</p>
+    <p><a href="/api/safe?query=hello">/api/safe?query=hello</a></p>
+    <p style="font-size: 13px; color: #737373;">
+      Test with: <code>/api/safe?query=hello</code>
+    </p>
+  </div>
+
+  <p style="margin-top: 32px; font-size: 13px; color: #737373;">
+    These endpoints are intentionally built to demonstrate XSS detection.
+    Do not use this code in production.
+  </p>
+</body>
+</html>
