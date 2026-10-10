@@ -8,7 +8,6 @@ const { buildPayload } = require('./payloads');
 const BROWSERLESS_TOKEN = process.env.BROWSERLESS_TOKEN;
 const BROWSERLESS_ENDPOINT = `wss://production-sfo.browserless.io?token=${BROWSERLESS_TOKEN}`;
 
-// CORS — register BEFORE routes
 fastify.register(cors, {
   origin: true,
   credentials: false,
@@ -17,6 +16,7 @@ fastify.register(cors, {
 });
 
 const ALLOWED_HOSTS = [
+  'xss-scanner-demo-app.vercel.app',
   'xss-scanner-demo.vercel.app',
   'localhost',
   '127.0.0.1',

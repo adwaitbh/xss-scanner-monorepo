@@ -16,8 +16,8 @@ import Link from 'next/link';
 import ConfirmModal from './ConfirmModal';
 
 const API_URL = 'https://xss-scanner-1s52.onrender.com';
-const DEMO_VULNERABLE = 'https://xss-scanner-demo.vercel.app/api/echo?query=hello';
-const DEMO_SAFE = 'https://xss-scanner-demo.vercel.app/api/safe?query=hello';
+const DEMO_VULNERABLE = 'https://xss-scanner-demo-app.vercel.app/api/echo?query=hello';
+const DEMO_SAFE = 'https://xss-scanner-demo-app.vercel.app/api/safe?query=hello';
 
 type Parameter = {
   name: string;
@@ -167,7 +167,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/adwaitbh/xss-scanner"
+              href="https://github.com/adwaitbh/xss-scanner-monorepo"
               target="_blank"
               rel="noreferrer"
               className="text-sm text-neutral-400 hover:text-neutral-100 flex items-center gap-1"
